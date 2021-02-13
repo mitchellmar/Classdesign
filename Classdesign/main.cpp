@@ -3,7 +3,6 @@
 #include "URLParser.h"
 #include "imagedata.h"
 
-
 int main()
 {
 	//test
