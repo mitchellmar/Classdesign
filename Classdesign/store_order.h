@@ -9,7 +9,6 @@ public:
 
 	double gettotalprice();
 
-	void removeitem(store_item removeorder);
 	void additem(store_item neworder);
 
 private:

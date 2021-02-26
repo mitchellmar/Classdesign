@@ -7,7 +7,6 @@ class store
 public:
 	store(std::vector<store_item> itemlist);
 	void additem(store_item newitem);
-	void removeitem(store_item itemremove);
 	void printstorelist(store param);
 
 private:

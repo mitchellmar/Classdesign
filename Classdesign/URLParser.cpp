@@ -18,26 +18,26 @@ std::string url::getscheme() const
 
 std::string url::getauthority() const
 {
-	int as = fullurl.find("//");
-	int ps = fullurl.find("/", as + 2);
-	int ae = ps - as;
+	size_t as = fullurl.find("//");
+	size_t ps = fullurl.find("/", as + 2);
+	size_t ae = ps - as;
 	std::string authority = fullurl.substr(as, ae);
 	return authority;
 }
 
 std::string url::getpath() const
 {
-	int ss = fullurl.find(":")+3;
-	int ps = fullurl.find("/", ss);
+	size_t ss = fullurl.find(":")+3;
+	size_t ps = fullurl.find("/", ss);
 	std::string path = fullurl.substr(ps);
 	return path;
 }
 
 std::ostream& operator<<(std::ostream& out, const url& param)
 {
-	out << std::string("URL: ") << param.getfullurl() << "\n";
-	out << std::string("\t") << std::string("SCHEME: ") << param.getscheme() << "\n";
-	out << std::string("\t") << std::string("AUTHORITY: " )<< param.getauthority() << "\n";
-	out << std::string("\t") << std::string("PATH: ") << param.getpath();
+	out << "URL: " << param.getfullurl() << "\n";
+	out << "\t" << "SCHEME: "<< param.getscheme() << "\n";
+	out << "\t" <<"AUTHORITY: "<< param.getauthority() << "\n";
+	out << "\t" << "PATH: " << param.getpath();
 	return out;
 }

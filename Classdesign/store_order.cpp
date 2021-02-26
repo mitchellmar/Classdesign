@@ -17,11 +17,6 @@ double store_order::gettotalprice()
 	return total;
 }
 
-void store_order::removeitem(store_item removeorder)
-{
-	remove(myorderlist.begin(), myorderlist.end(), removeorder);
-}
-
 void store_order::additem(store_item neworder)
 {
 	myorderlist.push_back(neworder);
