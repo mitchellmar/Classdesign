@@ -6,16 +6,16 @@ public:
 		, double size, std::string authname, std::string imgdim, std::string aperture,
 		std::string exposure, int iso, bool flash);
 
-	std::string getfilename();
-	std::string getimagetype();
-	std::string getdatecreated();
-	double getsize();
-	std::string getauthname();
-	std::string getimgdim();
-	std::string getaperature();
-	std::string getexposure();
-	int getiso();
-	bool getflash();
+	std::string getfilename() const;
+	std::string getimagetype() const;
+	std::string getdatecreated() const;
+	double getsize() const;
+	std::string getauthname() const;
+	std::string getimgdim() const;
+	std::string getaperature() const;
+	std::string getexposure() const;
+	int getiso() const;
+	bool getflash() const;
 
 	void setfilename(std::string newfilename);
 	void setimagetype(std::string newimagetype);
@@ -41,4 +41,4 @@ private:
 	bool myflash;
 };
 
-void printimageinformation(imagedata param);
+std::ostream& operator<<(std::ostream& out, const imagedata& param);

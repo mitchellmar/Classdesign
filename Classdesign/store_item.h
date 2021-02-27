@@ -5,10 +5,10 @@ class store_item
 public:
 	store_item(std::string name, long id, double price, int stock);
 
-	std::string getname();
-	long getid();
-	double getprice();
-	int getstock();
+	std::string getname() const;
+	long getid() const;
+	double getprice() const;
+	int getstock() const;
 
 	void setname(std::string newname);
 	void setid(long newid);
@@ -22,3 +22,4 @@ private:
 	int mystock;
 };
 
+std::ostream& operator<<(std::ostream& out, const store_item& param);

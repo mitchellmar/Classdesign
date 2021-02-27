@@ -2,12 +2,12 @@
 #include <iostream>
 #include "store_order.h"
 
-store_order::store_order(std::vector<store_item> orderlist)
+store_order:: store_order(std::vector<store_item> orderlist)
 	: myorderlist{ orderlist } {}
 
-double store_order::gettotalprice()
+double store_order::gettotalprice() const
 {
-	total = 0;
+	double total = 0.0;
 
 	for (store_item order : myorderlist)
 	{
@@ -15,6 +15,11 @@ double store_order::gettotalprice()
 	}
 
 	return total;
+}
+
+std::vector<store_item> store_order::getorderlist() const
+{
+	return myorderlist;
 }
 
 void store_order::additem(store_item neworder)

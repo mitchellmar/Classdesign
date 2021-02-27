@@ -9,52 +9,52 @@ imagedata:: imagedata(std::string filename, std::string imagetype, std::string d
 	myimgdim{ imgdim }, myaperature{ aperture }, myexposure{ exposure }, myiso{ iso }, myflash{ flash } {}
 
 //getters
-std::string imagedata::getfilename()
+std::string imagedata::getfilename() const
 {
 	return myfilename;
 }
 
-std::string imagedata::getimagetype()
+std::string imagedata::getimagetype() const
 {
 	return myimagetype;
 }
 
-std::string imagedata::getdatecreated()
+std::string imagedata::getdatecreated() const
 {
 	return mydatecreated;
 }
 
-double imagedata::getsize()
+double imagedata::getsize() const
 {
 	return mysize;
 }
 
-std::string imagedata::getauthname()
+std::string imagedata::getauthname() const
 {
 	return myauthname;
 }
 
-std::string imagedata::getimgdim()
+std::string imagedata::getimgdim() const
 {
 	return myimgdim;
 }
 
-std::string imagedata::getaperature()
+std::string imagedata::getaperature() const
 {
 	return myaperature;
 }
 
-std::string imagedata::getexposure()
+std::string imagedata::getexposure() const
 {
 	return myexposure;
 }
 
-int imagedata::getiso()
+int imagedata::getiso() const
 {
 	return myiso;
 }
 
-bool imagedata::getflash() 
+bool imagedata::getflash() const
 {
 	return myflash;
 }
@@ -129,16 +129,17 @@ void imagedata::setflash(bool newflash)
 }
 
 //prints entire data
-void printimageinformation(imagedata param)
+std::ostream& operator<<(std::ostream& out, const imagedata& param)
 {
-	std::cout << "File Name: " << param.getfilename() << "\n";
-	std::cout << "Image Type: " << param.getimagetype() << "\n";
-	std::cout << "Date Created: " << param.getdatecreated() << "\n";
-	std::cout << "Image size: " << param.getsize() << "\n";
-	std::cout << "Author Name: " << param.getauthname() << "\n";
-	std::cout << "Image Dimensions: " << param.getimgdim() << "\n";
-	std::cout << "Aperature: " << param.getaperature() << "\n";
-	std::cout << "Exposure: " << param.getexposure() << "\n";
-	std::cout << "ISO: " << param.getiso() << "\n";
-	std::cout << "Flash: " << param.getflash() << "\n";
+	out << "File Name: " << param.getfilename() << "\n";
+	out << "Image Type: " << param.getimagetype() << "\n";
+	out << "Date Created: " << param.getdatecreated() << "\n";
+	out << "Image size: " << param.getsize() << "\n";
+	out << "Author Name: " << param.getauthname() << "\n";
+	out << "Image Dimensions: " << param.getimgdim() << "\n";
+	out << "Aperature: " << param.getaperature() << "\n";
+	out << "Exposure: " << param.getexposure() << "\n";
+	out << "ISO: " << param.getiso() << "\n";
+	out << "Flash: " << param.getflash() << "\n";
+	return out;
 }
